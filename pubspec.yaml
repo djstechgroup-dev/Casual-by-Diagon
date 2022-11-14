@@ -1,0 +1,60 @@
+name: casualapp
+description: A new Flutter project.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.6 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  animations: ^2.0.7
+  animated_text_kit: ^4.2.2
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/logo_glow.png
+    - assets/images/splash_screen/1.png
+    - assets/images/splash_screen/2.png
+    - assets/images/splash_screen/img.png
+    - assets/images/splash_screen/bg.png
+    - assets/images/splash_screen/fade.png
+
+  fonts:
+    - family: Monument
+      fonts:
+        - asset: assets/fonts/MonumentExtended-Regular.otf
+          weight: 400
+        - asset: assets/fonts/MonumentExtended-Ultrabold.otf
+          weight: 900
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/Inter-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Inter-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Inter-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Inter-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Inter-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Inter-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Inter-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Inter-Black.ttf
+          weight: 900
