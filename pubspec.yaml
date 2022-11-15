@@ -12,6 +12,7 @@ dependencies:
 
   animations: ^2.0.7
   animated_text_kit: ^4.2.2
+  page_transition: ^2.0.9
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
@@ -25,11 +26,33 @@ flutter:
 
   assets:
     - assets/images/logo_glow.png
+    - assets/images/button_back.png
+    - assets/images/button_close.png
+    - assets/images/button_arrow_right.png
+    - assets/images/icon_coin.png
+    - assets/images/icon_money.png
     - assets/images/splash_screen/1.png
     - assets/images/splash_screen/2.png
     - assets/images/splash_screen/img.png
     - assets/images/splash_screen/bg.png
     - assets/images/splash_screen/fade.png
+    - assets/images/login_screen/bg.png
+    - assets/images/login_screen/text.png
+    - assets/images/login_screen/icon_apple.png
+    - assets/images/login_screen/icon_google.png
+    - assets/images/login_screen/icon_email.png
+    - assets/images/signup_screen/icon_email_outlined.png
+    - assets/images/signup_screen/icon_password_outlined.png
+    - assets/images/signup_screen/icon_person.png
+    - assets/images/signup_screen/icon_person_with_camera.png
+    - assets/images/update_screen/icon_bell_with_1.png
+    - assets/images/game_home_screen/earn_token_img_1.png
+    - assets/images/game_home_screen/game_3d_chess.png
+    - assets/images/game_home_screen/game_8_ball_billiard.png
+    - assets/images/game_home_screen/game_archery.png
+    - assets/images/game_home_screen/game_city_dunk.png
+    - assets/images/game_home_screen/game_endless_truck.png
+    - assets/images/game_home_screen/game_totemia.png
 
   fonts:
     - family: Monument
