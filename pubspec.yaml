@@ -30,6 +30,7 @@ flutter:
     - assets/images/button_back.png
     - assets/images/button_close.png
     - assets/images/button_arrow_right.png
+    - assets/images/icon_cog.png
     - assets/images/icon_coin.png
     - assets/images/icon_coin_large.png
     - assets/images/icon_star.png
@@ -69,6 +70,15 @@ flutter:
     - assets/images/game_home_screen/game_endless_truck.png
     - assets/images/game_home_screen/game_totemia.png
     - assets/images/game_home_screen/game_table_tennis.png
+    - assets/images/user_profile_screen/icon_discord.png
+    - assets/images/user_profile_screen/icon_highscore.png
+    - assets/images/user_profile_screen/icon_instagram.png
+    - assets/images/user_profile_screen/icon_past_activity.png
+    - assets/images/user_profile_screen/icon_referral.png
+    - assets/images/user_profile_screen/icon_telegram.png
+    - assets/images/user_profile_screen/icon_trophy.png
+    - assets/images/user_profile_screen/icon_twitter.png
+    - assets/images/user_profile_screen/img_with_level.png
     - assets/images/game_ranking_screen/badge_beginner.png
     - assets/images/game_ranking_screen/badge_warrior.png
     - assets/images/game_ranking_screen/badge_knight.png
