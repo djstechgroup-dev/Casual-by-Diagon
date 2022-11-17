@@ -1,5 +1,5 @@
 name: casualapp
-description: A new Flutter project.
+description: Casual App by Diagon.
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -10,8 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  animations: ^2.0.7
-  animated_text_kit: ^4.2.2
+  glass_kit: ^2.0.1
+  pinput: ^2.2.16
   page_transition: ^2.0.9
   intl: ^0.17.0
   cupertino_icons: ^1.0.2
@@ -26,70 +26,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/logo_glow.png
-    - assets/images/button_back.png
-    - assets/images/button_close.png
-    - assets/images/button_arrow_right.png
-    - assets/images/icon_cog.png
-    - assets/images/icon_coin.png
-    - assets/images/icon_coin_large.png
-    - assets/images/icon_star.png
-    - assets/images/icon_info.png
-    - assets/images/icon_money.png
-    - assets/images/icon_timer.png
-    - assets/images/icon_check_mark.png
-    - assets/images/splash_screen/1.png
-    - assets/images/splash_screen/2.png
-    - assets/images/splash_screen/img.png
-    - assets/images/splash_screen/bg.png
-    - assets/images/splash_screen/fade.png
-    - assets/images/login_screen/bg.png
-    - assets/images/login_screen/text.png
-    - assets/images/login_screen/icon_apple.png
-    - assets/images/login_screen/icon_google.png
-    - assets/images/login_screen/icon_email.png
-    - assets/images/signup_screen/icon_email_outlined.png
-    - assets/images/signup_screen/icon_password_outlined.png
-    - assets/images/signup_screen/icon_person.png
-    - assets/images/signup_screen/icon_person_with_camera.png
-    - assets/images/update_screen/icon_bell_with_1.png
-    - assets/images/game_home_screen/top_bg_blur.png
-    - assets/images/game_home_screen/earn_token_img_1.png
-    - assets/images/game_home_screen/img_table_tennis.png
-    - assets/images/game_home_screen/img_8_ball.png
-    - assets/images/game_home_screen/img_8_ball_play.png
-    - assets/images/game_home_screen/img_level.png
-    - assets/images/game_home_screen/icon_games.png
-    - assets/images/game_home_screen/icon_tournaments.png
-    - assets/images/game_home_screen/icon_leaderboard.png
-    - assets/images/game_home_screen/icon_transactions.png
-    - assets/images/game_home_screen/game_3d_chess.png
-    - assets/images/game_home_screen/game_8_ball_billiard.png
-    - assets/images/game_home_screen/game_archery.png
-    - assets/images/game_home_screen/game_city_dunk.png
-    - assets/images/game_home_screen/game_endless_truck.png
-    - assets/images/game_home_screen/game_totemia.png
-    - assets/images/game_home_screen/game_table_tennis.png
-    - assets/images/user_profile_screen/icon_discord.png
-    - assets/images/user_profile_screen/icon_highscore.png
-    - assets/images/user_profile_screen/icon_instagram.png
-    - assets/images/user_profile_screen/icon_past_activity.png
-    - assets/images/user_profile_screen/icon_referral.png
-    - assets/images/user_profile_screen/icon_telegram.png
-    - assets/images/user_profile_screen/icon_trophy.png
-    - assets/images/user_profile_screen/icon_twitter.png
-    - assets/images/user_profile_screen/img_with_level.png
-    - assets/images/game_ranking_screen/badge_beginner.png
-    - assets/images/game_ranking_screen/badge_warrior.png
-    - assets/images/game_ranking_screen/badge_knight.png
-    - assets/images/game_ranking_screen/badge_baron.png
-    - assets/images/game_ranking_screen/badge_duke.png
-    - assets/images/game_ranking_screen/badge_emperor.png
-    - assets/images/game_ranking_screen/badge_master.png
-    - assets/images/game_ranking_screen/badge_noble.png
-    - assets/images/game_ranking_screen/badge_prince.png
-    - assets/images/game_ranking_screen/badge_regen.png
-    - assets/images/game_ranking_screen/icon_ranking_progress.png
+    - assets/images/
 
   fonts:
     - family: Monument
