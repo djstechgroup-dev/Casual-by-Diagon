@@ -1,10 +1,11 @@
 import 'package:casualapp/Model/user_model.dart';
-import 'package:casualapp/Screens/GameHomeScreen/game_home_screen.dart';
+import 'package:casualapp/Screens/GameScreen/game_home_screen.dart';
 import 'package:casualapp/Screens/LeaderboardScreen/leaderboard_screen.dart';
-import 'package:casualapp/Screens/RaffleDrawScreen/raffle_draw_screen.dart';
+import 'package:casualapp/Screens/LotteryScreen/lottery_screen.dart';
 import 'package:casualapp/Screens/TransactionScreen/transactions_screen.dart';
 import 'package:casualapp/Screens/UserProfileScreen/user_profile_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:page_transition/page_transition.dart';
 
 class MainScreen extends StatefulWidget {
@@ -32,7 +33,7 @@ class _MainScreenState extends State<MainScreen> {
         body = const GameHomeScreen();
         break;
       case 1:
-        body = const RaffleDrawScreen();
+        body = const LotteryScreen();
         break;
       case 2:
         body = const LeaderboardScreen();
@@ -111,6 +112,8 @@ class _MainScreenState extends State<MainScreen> {
                     PageTransition(
                       child: const UserProfileScreen(),
                       type: PageTransitionType.rightToLeft,
+                      curve: Curves.easeInOut,
+                      duration: const Duration(milliseconds: 500),
                     ),
                   );
                 },
@@ -139,13 +142,15 @@ class _MainScreenState extends State<MainScreen> {
                               "assets/images/icon_red_circle_outlined.png",
                               height: 12,
                             ),
-                            Text(
-                              UserVariables.userLevel.toString(),
+                            DefaultTextStyle(
                               style: const TextStyle(
                                 fontFamily: "Inter",
                                 fontWeight: FontWeight.w600,
                                 fontSize: 6,
                                 color: Colors.white,
+                              ),
+                              child: Text(
+                                UserVariables.userLevel.toString(),
                               ),
                             ),
                           ],
@@ -157,7 +162,7 @@ class _MainScreenState extends State<MainScreen> {
               ),
             ),
             Hero(
-              tag: 'money_coin',
+              tag: 'ticket_dgn',
               child: Container(
                 height: 30,
                 padding: const EdgeInsets.symmetric(
@@ -167,51 +172,54 @@ class _MainScreenState extends State<MainScreen> {
                   borderRadius: BorderRadius.circular(50),
                   color: Colors.black26,
                 ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Row(
-                      children: [
-                        Image.asset(
-                          "assets/images/icon_ticket.png",
-                          height: 14,
-                        ),
-                        const SizedBox(width: 2,),
-                        const DefaultTextStyle(
-                          style: TextStyle(
-                            fontFamily: "Poppins",
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white,
-                            fontSize: 13,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Row(
+                        children: [
+                          Image.asset(
+                            "assets/images/icon_ticket.png",
+                            height: 14,
                           ),
-                          child: Text(
-                            "500",
+                          const SizedBox(width: 2,),
+                          DefaultTextStyle(
+                            style: const TextStyle(
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white,
+                              fontSize: 13,
+                            ),
+                            child: Text(
+                              NumberFormat('##,000').format(UserVariables.userTicket).toString(),
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(width: 4,),
-                    Row(
-                      children: [
-                        Image.asset(
-                          "assets/images/icon_dgn.png",
-                          height: 20,
-                        ),
-                        const SizedBox(width: 2,),
-                        const DefaultTextStyle(
-                          style: TextStyle(
-                            fontFamily: "Poppins",
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white,
-                            fontSize: 13,
+                        ],
+                      ),
+                      const SizedBox(width: 4,),
+                      Row(
+                        children: [
+                          Image.asset(
+                            "assets/images/icon_dgn.png",
+                            height: 20,
                           ),
-                          child: Text(
-                            "500",
+                          const SizedBox(width: 2,),
+                          DefaultTextStyle(
+                            style: const TextStyle(
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white,
+                              fontSize: 13,
+                            ),
+                            child: Text(
+                              NumberFormat('##,000').format(UserVariables.userDGN).toString(),
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

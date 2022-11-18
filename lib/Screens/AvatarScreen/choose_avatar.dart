@@ -36,7 +36,7 @@ class _ChooseAvatarState extends State<ChooseAvatar> {
     screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: const Color(0xFF020412),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Stack(

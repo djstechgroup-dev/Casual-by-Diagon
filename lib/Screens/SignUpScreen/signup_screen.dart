@@ -21,6 +21,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
   double screenHeight = 0;
   double bottomInset = 0;
 
+  bool error1 = false;
+  bool error2 = false;
+
   String avatarAsset = " ";
 
   int screenState = 0;
@@ -90,12 +93,84 @@ class _SignUpScreenState extends State<SignUpScreen> {
         GestureDetector(
           onTap: () {
             Feedback.forTap(context);
-            if(screenState < 3) {
-              setState(() {
-                screenState += 1;
-              });
-            } else {
-              //Submit function
+            switch(screenState) {
+              case 0:
+                if(usernameController.text.isEmpty) {
+                  setState(() {
+                    error1 = true;
+                  });
+
+                  Future.delayed(const Duration(seconds: 3), () {
+                    setState(() {
+                      error1 = false;
+                    });
+                  });
+                } else {
+                  setState(() {
+                    UserVariables.username = usernameController.text;
+                    screenState += 1;
+                  });
+                }
+                break;
+              case 1:
+                if(firstNameController.text.isEmpty) {
+                  setState(() {
+                    error1 = true;
+                  });
+
+                  Future.delayed(const Duration(seconds: 3), () {
+                    setState(() {
+                      error1 = false;
+                    });
+                  });
+                } else if(lastNameController.text.isEmpty) {
+                  setState(() {
+                    error2 = true;
+                  });
+
+                  Future.delayed(const Duration(seconds: 3), () {
+                    setState(() {
+                      error2 = false;
+                    });
+                  });
+                } else {
+                  setState(() {
+                    UserVariables.firstName = firstNameController.text;
+                    UserVariables.lastName = lastNameController.text;
+                    screenState += 1;
+                  });
+                }
+                break;
+              case 2:
+                if(emailController.text.isEmpty) {
+                  setState(() {
+                    error1 = true;
+                  });
+
+                  Future.delayed(const Duration(seconds: 3), () {
+                    setState(() {
+                      error1 = false;
+                    });
+                  });
+                } else if(passwordController.text.isEmpty) {
+                  setState(() {
+                    error2 = true;
+                  });
+
+                  Future.delayed(const Duration(seconds: 3), () {
+                    setState(() {
+                      error2 = false;
+                    });
+                  });
+                } else {
+                  setState(() {
+                    screenState += 1;
+                  });
+                }
+                break;
+              case 3:
+                //submit function
+                break;
             }
           },
           child: Hero(
@@ -226,8 +301,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
           [Colors.white, Colors.white],
           usernameController,
         ),
+        helperTextForField(
+          0, "Username can not be empty!",
+        ),
         AnimatedContainer(
-          height: bottomInset > 0 ? 0 : 30,
+          height: bottomInset > 0 ? 0 : 19,
           duration: const Duration(milliseconds: 500),
           curve: Curves.easeInOut,
         ),
@@ -239,7 +317,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Column(
       children: [
         AnimatedContainer(
-          height: bottomInset > 0 ? screenHeight / 20 : screenHeight / 8,
+          height: bottomInset > 0 ? screenHeight / 20 : screenHeight / 10,
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeInOut,
         ),
@@ -256,7 +334,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
         ),
         AnimatedContainer(
-          height: bottomInset > 0 ? screenHeight / 20 : screenHeight / 8,
+          height: bottomInset > 0 ? screenHeight / 20 : screenHeight / 10,
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeInOut,
         ),
@@ -267,8 +345,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
           [Colors.white, Colors.white],
           firstNameController,
         ),
+        helperTextForField(
+          0, "First name can not be empty!",
+        ),
         AnimatedContainer(
-          height: bottomInset > 0 ? 15 : 30,
+          height: bottomInset > 0 ? 4 : 19,
           duration: const Duration(milliseconds: 500),
           curve: Curves.easeInOut,
         ),
@@ -279,8 +360,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
           [Colors.white, Colors.white],
           lastNameController,
         ),
+        helperTextForField(
+          1, "Last name can not be empty!",
+        ),
         AnimatedContainer(
-          height: bottomInset > 0 ? 0 : 30,
+          height: bottomInset > 0 ? 0 : 19,
           duration: const Duration(milliseconds: 500),
           curve: Curves.easeInOut,
         ),
@@ -334,8 +418,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
           [Colors.white, Colors.white],
           emailController,
         ),
+        helperTextForField(
+          0, "Email can not be empty!",
+        ),
         AnimatedContainer(
-          height: bottomInset > 0 ? 15 : 30,
+          height: bottomInset > 0 ? 4 : 19,
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeInOut,
         ),
@@ -346,7 +433,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
           [Colors.white, Colors.white],
           passwordController,
         ),
-        const SizedBox(height: 15,),
+        helperTextForField(
+          1, "Password can not be empty!",
+        ),
+        const SizedBox(height: 4,),
         const Text(
           "· Password must be at least 5 characters",
           style: TextStyle(
@@ -474,6 +564,32 @@ class _SignUpScreenState extends State<SignUpScreen> {
             fontFamily: "Inter",
             fontWeight: FontWeight.w700,
             fontSize: screenWidth / 24,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget helperTextForField(int index, String text) {
+    return AnimatedOpacity(
+      opacity: index == 0 ? (error1 ? 1 : 0) : (error2 ? 1 : 0),
+      duration: const Duration(milliseconds: 800),
+      curve: Curves.easeInOut,
+      child: Padding(
+        padding: EdgeInsets.only(
+          top: 5,
+          left: screenWidth / 18 + 4,
+        ),
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            text,
+            style: const TextStyle(
+              fontFamily: "Inter",
+              fontWeight: FontWeight.w500,
+              fontSize: 11,
+              color: Color(0xFF5F5F5F),
+            ),
           ),
         ),
       ),
