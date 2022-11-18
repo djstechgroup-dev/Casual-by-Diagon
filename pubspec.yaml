@@ -11,6 +11,7 @@ dependencies:
     sdk: flutter
 
   glass_kit: ^2.0.1
+  gradient_borders: ^0.2.0
   pinput: ^2.2.16
   page_transition: ^2.0.9
   intl: ^0.17.0
@@ -27,6 +28,17 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/avatars/
+    - assets/images/game_home_screen/
+    - assets/images/game_play_screen/
+    - assets/images/login_screen/
+    - assets/images/signup_screen/
+    - assets/images/splash_screen/
+    - assets/images/referral_screen/
+    - assets/images/update_screen/
+    - assets/images/user_profile_screen/
+    - assets/images/lottery_screen/
+    - assets/images/leaderboard_screen/
 
   fonts:
     - family: Monument
