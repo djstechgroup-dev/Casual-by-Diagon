@@ -2,8 +2,8 @@ import 'package:casualapp/Model/user_model.dart';
 import 'package:casualapp/Screens/GameScreen/game_home_screen.dart';
 import 'package:casualapp/Screens/LeaderboardScreen/leaderboard_screen.dart';
 import 'package:casualapp/Screens/LotteryScreen/lottery_screen.dart';
-import 'package:casualapp/Screens/TransactionScreen/transactions_screen.dart';
 import 'package:casualapp/Screens/UserProfileScreen/user_profile_screen.dart';
+import 'package:casualapp/Screens/WalletScreen/wallet_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:page_transition/page_transition.dart';
@@ -39,7 +39,7 @@ class _MainScreenState extends State<MainScreen> {
         body = const LeaderboardScreen();
         break;
       case 3:
-        body = const TransactionsScreen();
+        body = const WalletScreen();
         break;
       default:
         body = const GameHomeScreen();
@@ -83,7 +83,7 @@ class _MainScreenState extends State<MainScreen> {
                   bottomNavItem(0, "icon_games", "Games"),
                   bottomNavItem(1, "icon_raffle", "Raffle Draw"),
                   bottomNavItem(2, "icon_leaderboard", "Leaderboard"),
-                  bottomNavItem(3, "icon_transactions", "Transactions"),
+                  bottomNavItem(3, "icon_wallet", "Wallet"),
                 ],
               ),
             ),

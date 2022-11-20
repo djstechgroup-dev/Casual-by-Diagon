@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:casualapp/Model/user_model.dart';
 import 'package:casualapp/Screens/GameScreen/game_play_screen.dart';
 import 'package:casualapp/Screens/UserProfileScreen/user_profile_screen.dart';
+import 'package:countup/countup.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:page_transition/page_transition.dart';
@@ -21,6 +22,7 @@ class _GameRuleScreenState extends State<GameRuleScreen> {
   double borderRadius = 0;
 
   int players = 5420;
+  int points = 3450;
 
   @override
   void initState() {
@@ -196,12 +198,31 @@ class _GameRuleScreenState extends State<GameRuleScreen> {
                                   "assets/images/user_profile_screen/icon_trophy.png",
                                   height: 15,
                                 ),
-                                const Text(
-                                  "3,750 Points",
-                                  style: TextStyle(
-                                    fontFamily: "Inter",
-                                    fontWeight: FontWeight.w600,
-                                    color: Color(0xFFFFA800),
+                                RichText(
+                                  text: TextSpan(
+                                    children: [
+                                      WidgetSpan(
+                                        child: Countup(
+                                          begin: 0,
+                                          end: points.toDouble(),
+                                          duration: const Duration(seconds: 1),
+                                          separator: ',',
+                                          style: const TextStyle(
+                                            fontFamily: "Inter",
+                                            fontWeight: FontWeight.w600,
+                                            color: Color(0xFFFFA800),
+                                          ),
+                                        ),
+                                      ),
+                                      const TextSpan(
+                                        text: " Points",
+                                        style: TextStyle(
+                                          fontFamily: "Inter",
+                                          fontWeight: FontWeight.w600,
+                                          color: Color(0xFFFFA800),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ],
@@ -386,7 +407,9 @@ class _GameRuleScreenState extends State<GameRuleScreen> {
                       child: const UserProfileScreen(),
                       type: PageTransitionType.rightToLeft,
                     ),
-                  );
+                  ).then((value) {
+                    setState(() {});
+                  });
                 },
                 child: Align(
                   alignment: Alignment.centerRight,

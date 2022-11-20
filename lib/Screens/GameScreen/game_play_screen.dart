@@ -25,6 +25,7 @@ class _GamePlayScreenState extends State<GamePlayScreen> {
           FittedBox(
             child: Image.asset(
               "assets/images/game_play_screen/blur_bg.png",
+              fit: BoxFit.fill,
             ),
           ),
           Center(

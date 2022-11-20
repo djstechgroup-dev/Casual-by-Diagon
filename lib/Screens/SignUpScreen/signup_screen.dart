@@ -1,5 +1,6 @@
 import 'package:casualapp/Model/user_model.dart';
-import 'package:casualapp/Screens/AvatarScreen/choose_avatar.dart';
+import 'package:casualapp/Widgets/choose_avatar.dart';
+import 'package:casualapp/Screens/SignUpScreen/signup_choose_avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:pinput/pinput.dart';
@@ -107,7 +108,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   });
                 } else {
                   setState(() {
-                    UserVariables.username = usernameController.text;
+                    UserVariables.username = usernameController.text.toLowerCase();
                     screenState += 1;
                   });
                 }
@@ -257,7 +258,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             Feedback.forTap(context);
             Navigator.of(context).push(
               PageTransition(
-                child: const ChooseAvatar(),
+                child: const SignUpChooseAvatar(),
                 type: PageTransitionType.scale,
                 alignment: Alignment.center,
                 duration: const Duration(milliseconds: 500),

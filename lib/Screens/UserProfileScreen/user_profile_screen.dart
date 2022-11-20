@@ -1,8 +1,8 @@
 import 'dart:math';
-
 import 'package:casualapp/Model/user_model.dart';
-import 'package:casualapp/Screens/UserProfileScreen/user_edit.dart';
+import 'package:casualapp/Screens/UserProfileScreen/user_profile_settings.dart';
 import 'package:casualapp/Screens/UserProfileScreen/user_highscores.dart';
+import 'package:countup/countup.dart';
 import 'package:flutter/material.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:intl/intl.dart';
@@ -89,7 +89,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   ),
                   const SizedBox(height: 24,),
                   Text(
-                    UserVariables.username !=  " " ? "@${UserVariables.username}" : "@Username",
+                    UserVariables.username !=  " " ? "@${UserVariables.username}" : "@username",
                     style: const TextStyle(
                       fontFamily: "Inter",
                       fontWeight: FontWeight.w700,
@@ -146,15 +146,16 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                                   height: screenHeight / 7.5 / 2.2 / 2,
                                 ),
                                 const SizedBox(width: 4,),
-                                DefaultTextStyle(
+                                Countup(
+                                  begin: 0,
+                                  end: UserVariables.userTicket.toDouble(),
+                                  duration: const Duration(seconds: 1),
+                                  separator: ',',
                                   style: const TextStyle(
                                     fontFamily: "Inter",
                                     fontWeight: FontWeight.w600,
                                     color: Colors.white,
                                     fontSize: 18,
-                                  ),
-                                  child: Text(
-                                    NumberFormat('##,000').format(UserVariables.userTicket).toString(),
                                   ),
                                 ),
                               ],
@@ -199,13 +200,16 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                               Image.asset(
                                 "assets/images/user_profile_screen/icon_trophy.png",
                               ),
-                              Text(
-                                NumberFormat('##,000').format(UserVariables.trophy).toString(),
+                              Countup(
+                                begin: 0,
+                                end: UserVariables.trophy.toDouble(),
+                                duration: const Duration(seconds: 1),
+                                separator: ',',
                                 style: const TextStyle(
                                   fontFamily: "Inter",
                                   fontWeight: FontWeight.w600,
-                                  fontSize: 15,
                                   color: Colors.white,
+                                  fontSize: 15,
                                 ),
                               ),
                             ],
@@ -364,12 +368,14 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       Feedback.forTap(context);
                       Navigator.of(context).push(
                         PageTransition(
-                          child: const UserEditProfile(),
+                          child: const UserProfileSettings(),
                           type: PageTransitionType.rightToLeft,
                           curve: Curves.easeInOut,
                           duration: const Duration(milliseconds: 500),
                         ),
-                      );
+                      ).then((value) {
+                        setState(() {});
+                      });
                     },
                     child: Container(
                       margin: const EdgeInsets.only(

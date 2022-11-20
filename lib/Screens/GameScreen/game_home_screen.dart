@@ -28,6 +28,7 @@ class _GameHomeScreenState extends State<GameHomeScreen> {
         children: [
           //Content
           SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
             child: Column(
               children: [
                 Stack(
