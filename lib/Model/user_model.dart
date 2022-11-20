@@ -8,4 +8,5 @@ class UserVariables {
   static int userLevel = 9;
   static int userTicket = 1000;
   static int userDGN = 500;
+  static int userReferrals = 6;
 }

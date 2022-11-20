@@ -248,6 +248,7 @@ class _WalletScreenState extends State<WalletScreen> {
                   ),
                 ),
               ),
+              SizedBox(height: screenHeight / 8,),
             ],
           ),
         ),

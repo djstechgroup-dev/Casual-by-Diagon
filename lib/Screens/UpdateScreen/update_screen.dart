@@ -17,7 +17,7 @@ class _UpdateScreenState extends State<UpdateScreen> {
     screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: const Color(0xFF020412),
       body: SafeArea(
         child: Padding(
           padding:  EdgeInsets.symmetric(

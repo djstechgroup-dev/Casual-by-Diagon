@@ -1,7 +1,10 @@
 import 'dart:math';
 import 'package:casualapp/Model/user_model.dart';
+import 'package:casualapp/Screens/UserProfileScreen/user_past_activity.dart';
 import 'package:casualapp/Screens/UserProfileScreen/user_profile_settings.dart';
 import 'package:casualapp/Screens/UserProfileScreen/user_highscores.dart';
+import 'package:casualapp/Screens/UserProfileScreen/user_referral_screen.dart';
+import 'package:casualapp/Widgets/back_button.dart';
 import 'package:countup/countup.dart';
 import 'package:flutter/material.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
@@ -30,6 +33,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
         child: Stack(
           children: [
             SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
               padding: EdgeInsets.symmetric(
                 horizontal: screenWidth / 20,
                 vertical: screenHeight / 12,
@@ -283,6 +287,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   const SizedBox(height: 12,),
                   GestureDetector(
                     onTap: () {
+                      Feedback.forTap(context);
                       Navigator.of(context).push(
                         PageTransition(
                           type: PageTransitionType.rightToLeft,
@@ -298,14 +303,40 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     ),
                   ),
                   const SizedBox(height: 12,),
-                  containerButton(
-                    const Color(0xFF00A610).withOpacity(0.2),
-                    rowButtonContent("icon_past_activity", "Past Activity"),
+                  GestureDetector(
+                    onTap: () {
+                      Feedback.forTap(context);
+                      Navigator.of(context).push(
+                        PageTransition(
+                          type: PageTransitionType.rightToLeft,
+                          child: const UserPastActivity(),
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.easeInOut,
+                        ),
+                      );
+                    },
+                    child: containerButton(
+                      const Color(0xFF00A610).withOpacity(0.2),
+                      rowButtonContent("icon_past_activity", "Past Activity"),
+                    ),
                   ),
                   const SizedBox(height: 12,),
-                  containerButton(
-                    const Color(0xFF171B3A),
-                    rowButtonContent("icon_referral", "Referral Code"),
+                  GestureDetector(
+                    onTap: () {
+                      Feedback.forTap(context);
+                      Navigator.of(context).push(
+                        PageTransition(
+                          type: PageTransitionType.rightToLeft,
+                          child: const UserReferralScreen(),
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.easeInOut,
+                        ),
+                      );
+                    },
+                    child: containerButton(
+                      const Color(0xFF171B3A),
+                      rowButtonContent("icon_referral", "Referral Code"),
+                    ),
                   ),
                   const SizedBox(height: 30),
                   const Align(
@@ -353,15 +384,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      Feedback.forTap(context);
-                      Navigator.pop(context);
-                    },
-                    child: Image.asset(
-                      "assets/images/button_back.png",
-                      width: 30,
-                    ),
+                  CustomBackButton(
+                    customContext: context,
                   ),
                   GestureDetector(
                     onTap: () {
