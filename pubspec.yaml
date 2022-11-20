@@ -15,6 +15,7 @@ dependencies:
   pinput: ^2.2.16
   page_transition: ^2.0.9
   intl: ^0.17.0
+  countup: ^0.1.4
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
@@ -39,6 +40,7 @@ flutter:
     - assets/images/user_profile_screen/
     - assets/images/lottery_screen/
     - assets/images/leaderboard_screen/
+    - assets/images/wallet_screen/
 
   fonts:
     - family: Monument
